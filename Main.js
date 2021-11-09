@@ -13,7 +13,7 @@ function setup(){
 function start(){
     objectDetector=ml5.objectDetector("cocossd", modeLoaded);
     document.getElementById("status").innerHTML= "Status: detecting objects";
-    document.getElementById("input");
+    input=document.getElementById("input").value;
 }
 
 function modeLoaded(){
@@ -33,6 +33,7 @@ function draw(){
             percent=floor(objects[i].confidence*100);
             text(objects[i].label + "" + percent + "%" , objects[i].x + 15, objects[i].y + 15);
             noFill();
+            stroke("black");
             rect(objects[i].x,objects[i].y,objects[i].width,objects[i].height);
 
             if(objects[i].label==input){
